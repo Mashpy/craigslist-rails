@@ -1,8 +1,10 @@
 <h2><%= @category.name %></h2>
 <% @category.posts.each do |post| %>
-  <p><%= link_to post.title, category_post_path(post.category, post) %></p>
+  <%= div_for post do %>
+  	<p><%= link_to post.title, category_post_path(post.category, post) %></p>
+  <% end %>
 <% end %>
 
 
-<%= link_to "New Posting", new_category_post_path(@category) %> |
-<%= link_to "Home", root_path %>
+<%= link_to "Home", root_path %> |
+<%= link_to "New Posting", new_category_post_path(@category) %>
