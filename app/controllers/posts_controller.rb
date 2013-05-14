@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :get_category, only: [:new, :edit]
+  before_filter :get_category, only: [:new, :edit, :create]
   before_filter :get_post, only: [:show, :edit, :update, :destroy]
   
   def get_category
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(params[:post])
+    @post = @category.posts.create(params[:post])
     redirect_to category_post_path(@post.category, @post)
   end
 
