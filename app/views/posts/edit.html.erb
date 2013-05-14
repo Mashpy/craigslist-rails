@@ -1,21 +1,3 @@
 <h2>Edit Post<small>(<%= @category.name %>)</small></h2>
-<%= form_for @post, :url => category_post_path(@category) do |f| %>
-
-  <%= hidden_field(:post, :category_id, value: @category.id) %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-   <p>
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-   <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render "shared/post_form", :locals => {post: @post, category: @category} %>
 <%= link_to "Category Home", @category %>
