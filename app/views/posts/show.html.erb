@@ -2,5 +2,5 @@
 <p><%= number_to_currency(@post.price) %></p>
 <p><%= @post.body %></p>
 
-<%= link_to "Category Home", category_path(@post.category) %>
+<%= link_to "Category Home", @post.category %>
 <%= link_to "Edit Post", edit_category_post_path(@post.category)%>

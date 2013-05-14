@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
+  before_filter :get_category, only: [:new, :edit]
+
+  def get_category
+    @category = Category.find(params[:category_id])
+  end
+
   def show
     @post = Post.find(params[:id])
   end
 
   def new
     @post = Post.new
-    @category = Category.find(params[:category_id])
   end
 
   def create
@@ -15,7 +20,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @category = Category.find(params[:category_id])
   end
 
   def update
