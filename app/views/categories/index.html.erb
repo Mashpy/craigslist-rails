@@ -1,6 +1,10 @@
-<h1> Craig's List on Rails </h1>
+<h1>Rails CraigsList</h1>
 <h2>Categories</h2>
 <% @categories.each do |category| %>
   <p><%= link_to category.name, category_path(category) %></p>
  <!--  this can also be category -->
+<% end %>
+
+<% if flash[:notice] %>
+  <p class="flash-notice"><%= flash[:notice] %></p>
 <% end %>
